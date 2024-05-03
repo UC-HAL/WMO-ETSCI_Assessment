@@ -1,0 +1,59 @@
+###October 2023
+
+#Command lines to be executed on the User's Linux server environment
+#to install Climpact and any other R packages required 
+#to run the SLURM job scripts for the ETSCI's calculation and statistical analyses.
+
+
+#NOTE: DO THIS ONLY ONCE TO GET THINGS INSTALLED!!!
+
+
+###############################################################
+#Steps to install Climpact R packages FOR THE FIRST TIME
+	#NOTE: to be done before testing or submitting any of the SLURM batch shell script for the ETSCI calculation
+	#Support resource: https://github.com/ARCCSS-extremes/climpact; https://github.com/ARCCSS-extremes/climpact/blob/master/www/user_guide/Climpact_user_guide.md#gettinginstalling.
+
+#after connecting to Linux server environment, the User should be on Home directory (e.g., "/home/alidath").
+
+#then, run the following command lines sequentially on the User's Linux terminal:
+
+#step1: from home directory (e.g., "/home/alidath"), load modules required to install and run Climpact R software
+module load r proj/7.2.1 udunits netcdf gdal geos
+
+#step2: from home directory, create a directory to save Climpact files
+mkdir climpact
+
+#step3: stay in the new directory and clone the Climpact repo from github
+cd climpact
+git clone https://github.com/ARCCSS-extremes/climpact.git #get link by opening 'Code' green box at https://github.com/ARCCSS-extremes/climpact
+
+#step4: remain in the directory and install the Climpact R software
+R #open R
+source('server/climpact.master.installer.r')
+	#suggestion: accept to create a personal library on the User's Linux server environment where to store installed packages
+q() #close R
+
+
+#Here is a list of the R packages that should be installed with their dependencies following the above steps:
+## "abind"          "bitops"         "Rcpp"           "caTools"        "PCICt"          "lmomco"         "SPEI"           "ncdf4"
+## "snow"           "udunits2"       "functional"     "proj4"          "foreach"        "doParallel"     "doSNOW"         "zoo" 
+## "zyp"            "tcltk2"         "shiny"          "shinythemes"    "markdown"       "servr"          "dplyr"          "corrplot"
+## "ggplot2"        "shinyjs"        "shinydashboard" "shinyBS"        "slickR"         "xml2"           "shinyWidgets"   "qpdf"
+## "LMoFit"         "ncdf4.helpers"  "climdex.pcic"   "climdex.pcic.ncdf"
+###############################################################
+
+
+#for any other necessary R packages not yet installed, open R and install them.
+#R
+#install.packages("parallelly") #examples
+	#suggestion: accept to create a personal library on the User's Linux server environment where to store installed packages
+#q()
+
+
+
+##########################IMPORTANT REMINDER#########################
+#Before submitting the SLURM script,
+#make sure after connected to your Linux server environment,
+#to set your working directory (e.g., cd /project/6079554/alidath/ETSCIfromGriddedTS)
+#and that it contains your SLURM script and all the input files necessary to execute the job submitted.
+###########################################################

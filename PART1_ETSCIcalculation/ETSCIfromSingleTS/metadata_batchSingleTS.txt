@@ -1,0 +1,3 @@
+station_file	latitude	longitude	wsdin	csdin	Tb_HDD	Tb_CDD	Tb_GDD	rxnday	rnnmm	txtn	SPEI
+regClimTS_BCC-CSM2-MR_hist-ssp126.txt	56	-114	5	5	18	18	10	7	30	3	12
+regClimTS_BCC-CSM2-MR_hist-ssp370.txt	56	-114	5	5	18	18	10	7	30	3	12
